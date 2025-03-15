@@ -3,20 +3,20 @@ import CallIcon from "@mui/icons-material/Call";
 import css from "./Contact.module.css";
 import Buttons from "../Buttons/Buttons";
 
-const Contact = ({ id, name, number, onDeleteContact }) => {
+const Contact = ({ contact, onDeleteContact }) => {
   return (
-    <li className={css.contactCard}>
+    <li key={contact.id} className={css.contactCard}>
       <div className={css.infoWrapper}>
         <div className={css.info}>
           <PersonIcon />
-          <p className={css.infoText}>{name}</p>
+          <p className={css.infoText}>{contact.name}</p>
         </div>
         <div className={css.info}>
           <CallIcon />
-          <p className={css.infoText}>{number}</p>
+          <p className={css.infoText}>{contact.number}</p>
         </div>
       </div>
-      <Buttons tag="Delete" onClick={() => onDeleteContact(id)} />
+      <Buttons tag="Delete" onClick={() => onDeleteContact(contact.id)} />
     </li>
   );
 };
